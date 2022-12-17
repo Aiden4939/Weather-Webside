@@ -7,6 +7,18 @@ const fetch = require("node-fetch");
 // api key
 const myKey = "4c89347f46fc588f75b3c19d2ad24ea8";
 
+// 跨域請求
+const cors = require("cors");
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://aiden4939.github.io"
+    ], //這邊改成他的伺服器(白名單)，有多個的時候用陣列表示
+    optionsSuccessStatus: 200,
+  })
+);
+
 function ktoC(k) {
   return (k - 273.15).toFixed(2);
 }
